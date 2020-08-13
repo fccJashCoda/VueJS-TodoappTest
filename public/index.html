@@ -23,7 +23,8 @@
       <h4>{{newTodo}}</h4>
       <ol>
         <li v-for="todo in todos">
-          {{ todo }}
+          {{ todo.text }}
+          <button @click="deleteTodo(todo)">Delete</button>
         </li>
       </ol>
     </div>

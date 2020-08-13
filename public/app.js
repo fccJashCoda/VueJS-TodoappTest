@@ -7,8 +7,12 @@ const app = new Vue({
   },
   methods: {
     addTodo() {
-      this.todos.push(this.newTodo);
+      this.todos.push({ text: this.newTodo, completed: false });
       this.newTodo = '';
+    },
+    deleteTodo(todo) {
+      const target = this.todos.indexOf(todo);
+      this.todos.splice(target, 1);
     },
   },
 });
