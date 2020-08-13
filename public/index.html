@@ -8,15 +8,25 @@
   </head>
   <body>
     <div id="app">
-      <h2>{{ message}}</h2>
+      <h1>{{ title}}</h1>
+      <form @submit.prevent="addTodo">
+        <label for="newTodo">New Todo:</label>
+        <input
+          v-model="newTodo"
+          type="text"
+          name="newTodo"
+          id="newTodo"
+          value=""
+        />
+        <button>Click</button>
+      </form>
+      <h4>{{newTodo}}</h4>
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo }}
+        </li>
+      </ol>
     </div>
-    <script>
-      const app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello Vue.js',
-        },
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
