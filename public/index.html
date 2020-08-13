@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .done {
+        text-decoration: line-through;
+      }
+    </style>
     <title>TodoApp</title>
   </head>
   <body>
@@ -23,7 +28,10 @@
       <h4>{{newTodo}}</h4>
       <ol>
         <li v-for="todo in todos">
-          {{ todo.text }}
+          <input type="checkbox" v-model="todo.completed" />
+          <span :class="{ done: todo.completed }">
+            {{ todo.text }}
+          </span>
           <button @click="deleteTodo(todo)">Delete</button>
         </li>
       </ol>
